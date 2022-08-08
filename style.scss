@@ -1,0 +1,398 @@
+@font-face {
+	font-family: Poppins;
+	src: url('../fonts/Poppins-Light.ttf');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url('../fonts/Poppins-Regular.ttf');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url('../fonts/Poppins-Medium.ttf');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url('../fonts/Poppins-SemiBold.ttf');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: Poppins;
+	src: url('../fonts/Poppins-Bold.ttf');
+	font-weight: 700;
+}
+
+body {
+	font-family: Poppins;
+	background-color: #121116;
+
+	.container-fluid {
+		padding-left: 1.5em;
+		padding-right: 1.5em;
+	}
+
+	.btn-outline-custom {
+		color: white;
+		border: 1px solid white;
+		transition: all 0.5s ease-in-out;
+		font-size: 14.4px;
+		font-weight: 700;
+		padding: 9.6px 19.2px;
+
+		&:hover {
+			background-color: white;
+			color: #121116;
+		}
+	}
+
+	.navbar-toggler {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3em;
+		span {
+			display: inline-block;
+			border: 0;
+			border-bottom: 2px solid white;
+			width: 25px;
+		}
+	}
+
+	header {
+		.navbar {
+			background-color: #121116;
+
+			.navbar-brand {
+				color: white;
+				font-weight: 500;
+			}
+
+			.offcanvas {
+				background-color: #121116;
+
+				.offcanvas-header {
+					.custom-close-btn {
+						color: white;
+						background-color: transparent;
+						border: none;
+						font-size: 1.3em;
+						display: inline-block;
+					}
+				}
+
+				.offcanvas-body {
+					@media (max-width: 767.98px) {
+						display: flex;
+						align-items: center;
+					}
+
+					.nav {
+						@media (max-width: 767.98px) {
+							width: 100%;
+						}
+
+						.nav-link {
+							color: white;
+							font-weight: 500;
+							font-size: 18px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.banner {
+		padding-top: 5em;
+		padding-bottom: 2em;
+
+		display: flex;
+		flex-direction: column;
+
+		@media (min-width: 576px) {
+			justify-content: center;
+			padding-top: 8em;
+			min-height: 100vh;
+		}
+
+		h1 {
+			line-height: 35.2px;
+			font-weight: 400;
+			color: white;
+			margin-bottom: 1em;
+			font-size: 20px;
+
+			@media (min-width: 992px) {
+				font-size: 22px;
+			}
+
+			@media (min-width: 1200px) {
+				font-size: 24px;
+			}
+		}
+
+		.btn-outline-custom {
+			margin-bottom: 2.5em;
+		}
+
+		.img-wrapper {
+			position: relative;
+			height: 50vw;
+			max-height: 400px;
+			overflow: hidden;
+			background-image: url('/assets/img/banner-img.jpg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			text-align: center;
+			margin-bottom: 2.5em;
+			border-radius: 20px;
+
+			.banner-link {
+				color: white;
+				z-index: 100;
+				position: relative;
+				text-decoration: none;
+				top: 50%;
+				font-size: 5vw;
+				font-weight: 700;
+
+				@keyframes underline {
+					0% {
+						right: 0;
+						width: 100%;
+					}
+
+					25% {
+						right: 0;
+						width: 0;
+					}
+
+					50% {
+						right: 0;
+						width: 0;
+					}
+
+					100% {
+						left: 0;
+						width: 100%;
+					}
+				}
+
+				&:hover:after {
+					animation-name: underline;
+					animation-duration: 1s;
+					animation-fill-mode: forwards;
+				}
+
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					border: 0;
+					border-bottom: 3px solid white;
+					width: 100%;
+					bottom: 0;
+					right: 0;
+				}
+			}
+
+			&::after {
+				display: block;
+				position: absolute;
+				content: '';
+				background-color: rgba(0, 0, 0, 0.4);
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 0;
+			}
+		}
+	}
+
+	.about-us {
+		padding-top: 5em;
+		padding-bottom: 5em;
+		h2 {
+			line-height: 35.2px;
+			font-weight: 400;
+			color: white;
+			margin-bottom: 1em;
+			font-size: 20px;
+
+			@media (min-width: 992px) {
+				font-size: 22px;
+			}
+
+			@media (min-width: 1200px) {
+				font-size: 24px;
+			}
+		}
+
+		p {
+			font-size: 16px;
+			color: white;
+			font-weight: 400;
+			line-height: 33.75px;
+			max-width: 800px;
+			margin-bottom: 4em;
+
+			// @media (min-width: 1200px) {
+			// 	margin-left: 10vw;
+			// }
+		}
+
+		.custom-cards {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 1.2em;
+
+			.custom-card {
+				position: relative;
+				border-radius: 20px;
+				overflow: hidden;
+
+				&:hover > img {
+					transform: scale(1.1, 1.1);
+				}
+
+				img {
+					width: 100%;
+					height: 300px;
+					object-fit: cover;
+					transition: all ease 0.5s;
+				}
+
+				.card-text {
+					position: absolute;
+					background-color: rgba(0, 0, 0, 0.4);
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					color: white;
+					padding: 1.5em;
+
+					h3 {
+						line-height: 35.2px;
+						font-weight: 400;
+						color: white;
+						font-size: 18px;
+						pointer-events: none;
+
+						@media (min-width: 992px) {
+							font-size: 20px;
+						}
+
+						@media (min-width: 1200px) {
+							font-size: 22px;
+						}
+					}
+
+					p {
+						pointer-events: none;
+					}
+				}
+			}
+		}
+	}
+
+	.contact-us {
+		padding-top: 5em;
+		padding-bottom: 5em;
+
+		h2 {
+			line-height: 35.2px;
+			font-weight: 400;
+			color: white;
+			margin-bottom: 0.5em;
+			font-size: 20px;
+
+			@media (min-width: 992px) {
+				font-size: 22px;
+			}
+
+			@media (min-width: 1200px) {
+				font-size: 24px;
+			}
+		}
+
+		p {
+			font-size: 16px;
+			color: white;
+			font-weight: 400;
+			line-height: 33.75px;
+			max-width: 800px;
+			margin-bottom: 4em;
+		}
+
+		.form-wrapper {
+			.inner {
+				// background-color: red;
+				border-radius: 15px;
+				background-color: rgb(29, 29, 29);
+				padding: 1em;
+				// height: 500px;
+			}
+			.left {
+				background-color: #f79e7a;
+				border-radius: 15px;
+				padding: 2.3em;
+				min-height: 100%;
+				color: white;
+				position: relative;
+
+				.header {
+					margin-bottom: 2.5em;
+					p {
+						margin-bottom: unset;
+					}
+				}
+
+				.contact-info {
+					display: flex;
+					gap: 1em;
+					flex-direction: column;
+				}
+
+				.social-media {
+					position: absolute;
+					bottom: 2.3em;
+
+					display: flex;
+					gap: 2em;
+				}
+			}
+
+			.right {
+				padding: 2.3em;
+
+				.form-floating {
+					input,
+					select,
+					textarea {
+						background-color: #121116;
+						border: 1px solid #121116;
+						color: white;
+					}
+					label {
+						color: white;
+					}
+
+					.form-select {
+						color: white !important;
+					}
+					textarea {
+						min-height: 200px;
+					}
+				}
+			}
+		}
+	}
+}
